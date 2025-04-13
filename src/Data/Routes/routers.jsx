@@ -7,7 +7,7 @@ import MovieDetail from '../../components/pages/MovieDetail/MovieDetail';
 import Movies from '../../components/pages/Movies/Movies';
 import MoviesListMain from '../../components/pages/MoviesListMain/MoviesListMain';
 import MoviesListTop from '../../components/pages/MoviesListTop/MoviesListTop';
-import { MOVIE_LISTS, TOP_LIST } from './MenuLists/navItems';
+import { MOVIE_LISTS, TOP_LIST } from '../MenuLists/navItems';
 
 const router = createBrowserRouter([
   {

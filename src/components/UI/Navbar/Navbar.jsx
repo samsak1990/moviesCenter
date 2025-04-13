@@ -24,7 +24,7 @@ import {
   iconComponents,
   MOVIE_LISTS,
   TOP_LIST,
-} from '../../../Data/Routes/MenuLists/navItems.jsx';
+} from '../../../Data/MenuLists/navItems.jsx';
 
 const Icon = ({ icon }) => {
   const IconComponent = iconComponents[icon];
