@@ -39,15 +39,50 @@ export const MAIN_MENU = [
 ];
 
 export const TOP_LIST = [
-  { title: 'TOP 100', icon: 'AutoAwesome', url: '/popular100' },
-  { title: 'TOP 250', icon: 'StarPurple500', url: '/popular250' },
-  { title: 'Вампиры', icon: 'Bloodtype', url: '/vapiris' },
-  { title: 'Комиксы', icon: 'MenuBook', url: '/comics' },
-  { title: 'Семейный', icon: 'FamilyRestroom', url: '/family' },
-  { title: 'Романтика', icon: 'VolunteerActivism', url: '/romantic' },
-  { title: 'Зомби', icon: 'MoodBad', url: '/zobie' },
-  { title: 'Катастрофы', icon: 'Pool', url: '/crash' },
-  { title: 'Популярный сериалы', icon: 'LiveTv', url: '/popserials' },
+  {
+    title: 'TOP 100',
+    icon: 'AutoAwesome',
+    url: '/popular100',
+    value: 'TOP_POPULAR_MOVIES',
+  },
+  {
+    title: 'TOP 250',
+    icon: 'StarPurple500',
+    url: '/popular250',
+    value: 'TOP_250_MOVIES',
+  },
+  {
+    title: 'Вампиры',
+    icon: 'Bloodtype',
+    url: '/vapiris',
+    value: 'VAMPIRE_THEME',
+  },
+  { title: 'Комиксы', icon: 'MenuBook', url: '/comics', value: 'COMICS_THEME' },
+  {
+    title: 'Семейный',
+    icon: 'FamilyRestroom',
+    url: '/family',
+    value: 'FAMILY',
+  },
+  {
+    title: 'Романтика',
+    icon: 'VolunteerActivism',
+    url: '/romantic',
+    value: 'LOVE_THEME',
+  },
+  { title: 'Зомби', icon: 'MoodBad', url: '/zobie', value: 'ZOMBIE_THEME' },
+  {
+    title: 'Катастрофы',
+    icon: 'Pool',
+    url: '/crash',
+    value: 'CATASTROPHE_THEME',
+  },
+  {
+    title: 'Популярный сериалы',
+    icon: 'LiveTv',
+    url: '/popserials',
+    value: 'POPULAR_SERIES',
+  },
 ];
 
 export const MOVIE_LISTS = [
