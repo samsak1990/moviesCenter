@@ -1,13 +1,13 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import Layout from '../../components/Layout';
-import ActorDetail from '../../components/pages/ActorDetail/ActorDetail';
-import MovieDetail from '../../components/pages/MovieDetail/MovieDetail';
-import Movies from '../../components/pages/Movies/Movies';
-import MoviesListMain from '../../components/pages/MoviesListMain/MoviesListMain';
-import MoviesListTop from '../../components/pages/MoviesListTop/MoviesListTop';
-import { MOVIE_LISTS, TOP_LIST } from '../MenuLists/navItems';
+import Layout from '../components/Layout';
+import ActorDetail from '../components/pages/ActorDetail/ActorDetail';
+import MovieDetail from '../components/pages/MovieDetail/MovieDetail';
+import Movies from '../components/pages/Movies/Movies';
+import MoviesListMain from '../components/pages/MoviesListMain/MoviesListMain';
+import MoviesListTop from '../components/pages/MoviesListTop/MoviesListTop';
+import { MOVIE_LISTS, TOP_LIST } from '../Data/MenuLists/navItems';
 
 const router = createBrowserRouter([
   {

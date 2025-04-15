@@ -1,12 +1,15 @@
 import { CssBaseline } from '@mui/material';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 
+import { store } from './app/store';
 import App from './components/App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <>
-    <CssBaseline>
+    <Provider store={store}>
+      <CssBaseline />
       <App />
-    </CssBaseline>
+    </Provider>
   </>,
 );
