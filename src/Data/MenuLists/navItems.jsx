@@ -78,7 +78,7 @@ export const TOP_LIST = [
     value: 'CATASTROPHE_THEME',
   },
   {
-    title: 'Популярный сериалы',
+    title: 'Популярные сериалы',
     icon: 'LiveTv',
     url: '/popserials',
     value: 'POPULAR_SERIES',
