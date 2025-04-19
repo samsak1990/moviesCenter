@@ -6,7 +6,7 @@ import { kinopoiskApi } from '../services/kinopoiskAPI';
 export const store = configureStore({
   reducer: {
     [kinopoiskApi.reducerPath]: kinopoiskApi.reducer,
-    currentQuery: currentQueryReduser,
+    currentQuerySlice: currentQueryReduser,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(kinopoiskApi.middleware),

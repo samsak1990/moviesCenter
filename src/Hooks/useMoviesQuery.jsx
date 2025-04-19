@@ -7,7 +7,7 @@ import {
 } from '../services/kinopoiskAPI';
 
 export default function useMoviesQuery() {
-  const { page, counties, order, year } = useSelector(
+  const { countries, order, year, page } = useSelector(
     state => state.currentQuerySlice,
   );
   const responsePopular = useGetFilmsTopQuery({
@@ -22,7 +22,7 @@ export default function useMoviesQuery() {
 
   const responseFilms = useGetFilmsQuery({
     type: 'FILM',
-    counties,
+    countries,
     generId: '1',
     order,
     year,
@@ -31,7 +31,7 @@ export default function useMoviesQuery() {
 
   const responseSerials = useGetFilmsQuery({
     type: 'TV_SERIES',
-    counties,
+    countries,
     generId: '1',
     order,
     year,
@@ -40,7 +40,7 @@ export default function useMoviesQuery() {
 
   const responseCartoons = useGetFilmsQuery({
     type: 'FILM',
-    counties,
+    countries,
     generId: '18',
     order,
     year,

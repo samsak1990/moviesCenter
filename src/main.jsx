@@ -1,4 +1,5 @@
 import { CssBaseline } from '@mui/material';
+
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
