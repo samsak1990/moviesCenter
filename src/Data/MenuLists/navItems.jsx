@@ -42,7 +42,7 @@ export const TOP_LIST = [
   {
     title: 'TOP 100',
     icon: 'AutoAwesome',
-    url: '/popular100',
+    url: '/popular',
     value: 'TOP_POPULAR_MOVIES',
   },
   {
