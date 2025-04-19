@@ -20,58 +20,40 @@ export default function Movies() {
   //TODO add error component
   if (hasError) return <p>Error....</p>;
 
+  const serializeDataForCarousel = data => {
+    const serialaze = data.map(film => {
+      return (
+        <div key={film.kinopoiskId}>
+          <p>{film.name}</p>
+          <img alt={film.name} src={film.posterUrlPreview} />
+        </div>
+      );
+    });
+    return serialaze;
+  };
+
+  const carouselArr = [
+    {
+      title: 'Популярные фильмы',
+      url: '/popular',
+      data: serializeDataForCarousel(responsePopular.data.items),
+    },
+  ];
+
   return (
-    <InfiniteCarousel
-      dots={true}
-      showSides={true}
-      sidesOpacity={0.5}
-      sideSize={0.1}
-      slidesToScroll={4}
-      slidesToShow={4}
-      scrollOnDevice={true}
-    >
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-      <div>
-        <img
-          alt=""
-          src="https://cs13.pikabu.ru/avatars/3126/x3126308-1172376264.png"
-        />
-      </div>
-    </InfiniteCarousel>
+    <div>
+      <p>Main</p>
+      <InfiniteCarousel
+        dots={false}
+        showSides={true}
+        sidesOpacity={0.5}
+        sideSize={0.1}
+        slidesToScroll={4}
+        slidesToShow={4}
+        scrollOnDevice={true}
+      >
+        {carouselArr[0].data.map(film => film)}
+      </InfiniteCarousel>
+    </div>
   );
 }
