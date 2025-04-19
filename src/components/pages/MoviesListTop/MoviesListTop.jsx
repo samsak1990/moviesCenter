@@ -1,6 +1,6 @@
 import { ArrowBack } from '@mui/icons-material';
 import { Button, Stack, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { TOP_LIST } from '../../../Data/MenuLists/navItems';
@@ -19,9 +19,9 @@ export default function MoviesListTop() {
     page: page,
   });
 
-  useEffect(()=>{
-    setPage(1)
-  }, [location])
+  useLayoutEffect(() => {
+    setPage(1);
+  }, [location]);
 
   if (error) return <p>Some error</p>;
   if (isLoading) return <p>Please, wait!</p>;

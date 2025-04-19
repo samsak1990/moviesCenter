@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   counties: '',
-  gengerId: '',
+  generId: '',
   order: 'NUM_VOTE',
   type: '',
   year: '',
