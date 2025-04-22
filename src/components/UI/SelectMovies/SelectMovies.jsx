@@ -9,6 +9,9 @@ import {
   Stack,
 } from '@mui/material';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { resetFilters, selectQuery } from '../../../features/currentQuerySlice';
 
 const ordersList = [
   { title: 'Рейтин', value: 'RATING' },
@@ -19,7 +22,6 @@ const yearsList = new Array(60).fill(null).map((_, index) => ({
   title: new Date().getFullYear() - index,
   value: new Date().getFullYear() - index,
 }));
-
 export default function SelectMovies({
   countriesList,
   genresList,
@@ -28,6 +30,7 @@ export default function SelectMovies({
   year,
   generId,
 }) {
+  const dispath = useDispatch();
   return (
     <Stack
       sx={{
@@ -39,7 +42,11 @@ export default function SelectMovies({
     >
       <FormControl variant="filled" fullWidth size="small">
         <InputLabel>Сортировка</InputLabel>
-        <Select label="order">
+        <Select
+          label="order"
+          value={order}
+          onChange={e => dispath(selectQuery({ order: e.target.value }))}
+        >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -52,7 +59,11 @@ export default function SelectMovies({
       </FormControl>
       <FormControl variant="filled" fullWidth size="small">
         <InputLabel>Страна</InputLabel>
-        <Select label="counry">
+        <Select
+          label="counries"
+          value={countries}
+          onChange={e => dispath(selectQuery({ countries: e.target.value }))}
+        >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -65,7 +76,11 @@ export default function SelectMovies({
       </FormControl>
       <FormControl variant="filled" fullWidth size="small">
         <InputLabel>Жанр</InputLabel>
-        <Select label="genre">
+        <Select
+          label="generId"
+          value={generId}
+          onChange={e => dispath(selectQuery({ generId: e.target.value }))}
+        >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -79,7 +94,11 @@ export default function SelectMovies({
 
       <FormControl variant="filled" fullWidth size="small">
         <InputLabel>Год</InputLabel>
-        <Select label="year">
+        <Select
+          label="year"
+          value={year}
+          onChange={e => dispath(selectQuery({ year: e.target.value }))}
+        >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -91,7 +110,11 @@ export default function SelectMovies({
         </Select>
       </FormControl>
       <Box>
-        <Button variant="outlined" startIcon={<CloseIcon />}>
+        <Button
+          variant="outlined"
+          startIcon={<CloseIcon />}
+          onClick={() => dispath(resetFilters())}
+        >
           Сбросить
         </Button>
       </Box>

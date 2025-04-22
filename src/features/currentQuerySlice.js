@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   countries: '',
   generId: '',
-  order: 'NUM_VOTE',
+  order: '',
   type: '',
   year: '',
   page: 1,
@@ -12,9 +12,17 @@ const initialState = {
 export const currentQuerySlice = createSlice({
   name: 'currentQuerySlice',
   initialState,
-  reducers: {},
+  reducers: {
+    selectQuery: (state, action) => ({
+      ...state,
+      ...action.payload,
+    }),
+    resetFilters: () => ({
+      ...initialState,
+    }),
+  },
 });
 
-export const {} = currentQuerySlice.actions;
+export const { selectQuery, resetFilters } = currentQuerySlice.actions;
 
 export default currentQuerySlice.reducer;
