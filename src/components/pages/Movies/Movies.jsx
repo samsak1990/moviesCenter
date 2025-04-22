@@ -5,6 +5,7 @@ import { Router, Link as RouterLink } from 'react-router-dom';
 
 import useMoviesQuery from '../../../Hooks/useMoviesQuery';
 import ErrorMsg from '../../UI/ErrorMsg/ErrorMsg';
+import MoviesSkeleton from './MoviesSkeleton';
 
 export default function Movies() {
   const {
@@ -18,10 +19,10 @@ export default function Movies() {
   } = useMoviesQuery();
 
   //TODO add skeleton
-  if (isLoading) return <p>Loading....</p>;
+  if (isLoading) return <MoviesSkeleton />;
 
   //TODO add error component
-  if (!hasError) return <ErrorMsg />;
+  if (hasError) return <ErrorMsg />;
 
   const serializeDataForCarousel = data => {
     const serialaze = data.map(film => {
