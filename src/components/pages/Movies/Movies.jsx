@@ -4,6 +4,7 @@ import InfiniteCarousel from 'react-leaf-carousel';
 import { Router, Link as RouterLink } from 'react-router-dom';
 
 import useMoviesQuery from '../../../Hooks/useMoviesQuery';
+import ErrorMsg from '../../UI/ErrorMsg/ErrorMsg';
 
 export default function Movies() {
   const {
@@ -20,15 +21,17 @@ export default function Movies() {
   if (isLoading) return <p>Loading....</p>;
 
   //TODO add error component
-  if (hasError) return <p>Error....</p>;
+  if (!hasError) return <ErrorMsg />;
 
   const serializeDataForCarousel = data => {
     const serialaze = data.map(film => {
       return (
-        <div key={film.kinopoiskId}>
-          <p>{film.name}</p>
-          <img alt={film.name} src={film.posterUrlPreview} />
-        </div>
+        <RouterLink to={`/movie/${film.kinopoiskId}`} key={film.kinopoiskId}>
+          <div>
+            <p>{film.name}</p>
+            <img alt={film.name} src={film.posterUrlPreview} />
+          </div>
+        </RouterLink>
       );
     });
     return serialaze;
@@ -65,7 +68,7 @@ export default function Movies() {
   return (
     <>
       {carouselArr.map((row, index) => (
-        <div>
+        <div key={row.url}>
           <Stack>
             <Link
               sx={{ mt: 2, mb: 2 }}
