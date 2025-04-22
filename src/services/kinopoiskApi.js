@@ -3,6 +3,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const kinopoiskApiKey = import.meta.env.VITE_KINOPOISK_API_KEY;
 
+const excludeGenres = [
+  '',
+  'новости',
+  'дле взрослых',
+  'церемония',
+  'реальное ТВ',
+  'ток-шоу',
+];
+
 // Define a service using a base URL and expected endpoints
 export const kinopoiskApi = createApi({
   reducerPath: 'kinopoiskApi',
@@ -29,9 +38,22 @@ export const kinopoiskApi = createApi({
       }) =>
         `/v2.2/films?countries=${countries}&genres=${generId}&order=${order}&type=${type}&year=${year}&page=${page}`,
     }),
+    getGenresAndCountries: builder.query({
+      query: () => '/v2.2/films/filters',
+      transformResponse: response => ({
+        ...response,
+        genres: response.genres.filter(
+          ({ genre }) => !excludeGenres.includes(genre),
+        ),
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetFilmsTopQuery, useGetFilmsQuery } = kinopoiskApi; //useGetFilmsTopQuery -> 'useGet' +  'getFilmsTop' + 'Query'
+export const {
+  useGetFilmsTopQuery,
+  useGetFilmsQuery,
+  useGetGenresAndCountriesQuery,
+} = kinopoiskApi; //useGetFilmsTopQuery -> 'useGet' +  'getFilmsTop' + 'Query'
