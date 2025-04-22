@@ -17,12 +17,12 @@ export const currentQuerySlice = createSlice({
       ...state,
       ...action.payload,
     }),
-    resetFilters: () => ({
+    resetQuery:: () => ({
       ...initialState,
     }),
   },
 });
 
-export const { selectQuery, resetFilters } = currentQuerySlice.actions;
+export const { selectQuery, resetQuery } = currentQuerySlice.actions;
 
 export default currentQuerySlice.reducer;

@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { resetFilters, selectQuery } from '../../../features/currentQuerySlice';
+import { resetQuery, selectQuery } from '../../../features/currentQuerySlice';
 
 const ordersList = [
   { title: 'Рейтин', value: 'RATING' },
@@ -113,7 +113,7 @@ export default function SelectMovies({
         <Button
           variant="outlined"
           startIcon={<CloseIcon />}
-          onClick={() => dispath(resetFilters())}
+          onClick={() => dispath(resetQuery())}
         >
           Сбросить
         </Button>
