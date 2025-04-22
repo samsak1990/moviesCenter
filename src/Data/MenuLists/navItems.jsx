@@ -86,7 +86,7 @@ export const TOP_LIST = [
 ];
 
 export const MOVIE_LISTS = [
-  { title: 'Фильмы', icon: 'LocalMovies', url: '/films' },
-  { title: 'Сериалы', icon: 'Reorder', url: '/serials' },
-  { title: 'Мультфильмы', icon: 'Fort', url: '/cartoons' },
+  { title: 'Фильмы', icon: 'LocalMovies', url: '/films', value: 'FILM' },
+  { title: 'Сериалы', icon: 'Reorder', url: '/serials', value: 'TV_SERIES' },
+  { title: 'Мультфильмы', icon: 'Fort', url: '/cartoons', value: 'FILM' },
 ];
